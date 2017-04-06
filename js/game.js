@@ -1,12 +1,12 @@
 $(document).ready(function() {
-    var Game = function(givenBoard) {
+  var Game = function(givenBoard) {
 
     function getRandomIndex(maxExclusive) {
       return Math.floor(Math.random() * maxExclusive)
     }
 
     function randomBoard() {
-      var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+     var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       var index1 = getRandomIndex(16)
       var index2 = index1
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
     function presetBoard(board) {
       var boardArray = board.split("")
       for (i = 0; i < boardArray.length; i++) {
-       boardArray[i] = parseInt(boardArray[i])
+        boardArray[i] = parseInt(boardArray[i])
       }
       return boardArray
     }
@@ -47,4 +47,5 @@ $(document).ready(function() {
       this.board.slice(12,16)
     ]
   }
+
 })
