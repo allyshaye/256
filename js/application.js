@@ -39,13 +39,17 @@ $(document).ready(function() {
     }
   }
 
-  Game.prototype.removeZeroes = function(board) {
-    var workingBoard = [
+  function createWorkingBoard(board) {
+    return [
       board.slice(0,4), 
       board.slice(4,8), 
       board.slice(8,12), 
       board.slice(12,16)
     ]
+  }
+
+  Game.prototype.removeZeroes = function(board) {
+    var workingBoard = createWorkingBoard(board)
 
     for (i = 0; i < workingBoard.length; i++) {
       for (j = 0; j < workingBoard[i].length; j++) {
@@ -59,10 +63,26 @@ $(document).ready(function() {
     return workingBoard
   }
 
+  Game.prototype.combineTilesRight = function(board) {
+    for (i = 0; i < board.length; i++) {
+      for (j = board[i].length-1; j > 0; j--) {
+        if (board[i][j] === board[i][j-1]) {
+          board[i][j] *=2
+          board[i].splice(j-1, 1)
+       }
+      }
+    }
+    return board
+  }
+
   game = new Game("0024000000222020")
-  console.log(game.board)
-  console.log(game.removeZeroes(game.board))
-
-
+  var removeZeroes =  game.removeZeroes(game.board)
+  console.log(removeZeroes.length)
+  console.log(removeZeroes[0])
+  console.log(removeZeroes[1])
+  console.log(removeZeroes[2])
+  console.log(removeZeroes[3])
+  var tilesCombined = game.combineTilesRight(removeZeroes)
+  console.log(tilesCombined)
 
 })
