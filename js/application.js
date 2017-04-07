@@ -63,6 +63,7 @@ $(document).ready(function() {
     return workingBoard
   }
 
+  // move: right
   Game.prototype.combineTilesRight = function(board) {
     for (i = 0; i < board.length; i++) {
       for (j = board[i].length-1; j > 0; j--) {
@@ -75,14 +76,25 @@ $(document).ready(function() {
     return board
   }
 
+  // move: right (therefore padding zeroes from the left)
+  Game.prototype.padZeroes = function(board) {
+    for (i = 0; i < board.length; i++) {
+      do {
+        board[i].unshift(0)
+      } while (board[i].length < 4)
+    }
+    return board
+  }
+
+  Game.prototype.saveBoard = function(board) {
+    this.board = [].concat.apply([], board)
+  }
+
   game = new Game("0024000000222020")
   var removeZeroes =  game.removeZeroes(game.board)
-  console.log(removeZeroes.length)
-  console.log(removeZeroes[0])
-  console.log(removeZeroes[1])
-  console.log(removeZeroes[2])
-  console.log(removeZeroes[3])
   var tilesCombined = game.combineTilesRight(removeZeroes)
-  console.log(tilesCombined)
+  var updatedBoard = game.padZeroes(tilesCombined)
+  game.saveBoard(updatedBoard)
+  console.log(game.board)
 
 })
