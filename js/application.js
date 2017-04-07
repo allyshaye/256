@@ -60,7 +60,6 @@ $(document).ready(function() {
     return board
   }
 
-  // move: right
   function combineTilesRight(board) {
     for (i = 0; i < board.length; i++) {
       for (j = board[i].length-1; j > 0; j--) {
@@ -73,8 +72,7 @@ $(document).ready(function() {
     return board
   }
 
-  // move: right (therefore padding zeros from the left)
-  function padZeros(board) {
+  function padZerosLeft(board) {
     for (i = 0; i < board.length; i++) {
       if (board[i].length !== 4) {
         do {
