@@ -49,17 +49,15 @@ $(document).ready(function() {
   }
 
   function removeZeros(board) {
-    var workingBoard = createWorkingBoard(board)
-
-    for (i = 0; i < workingBoard.length; i++) {
-      for (j = 0; j < workingBoard[i].length; j++) {
-        if (workingBoard[i][j] === 0) {
-          workingBoard[i].splice(j, 1)
+    for (i = 0; i < board.length; i++) {
+      for (j = 0; j < board[i].length; j++) {
+        if (board[i][j] === 0) {
+          board[i].splice(j, 1)
           j = j-1
         }
       }
     }
-    return workingBoard
+    return board
   }
 
   // move: right
@@ -92,15 +90,35 @@ $(document).ready(function() {
   }
 
   Game.prototype.moveRight = function() {
-    var noZeros = removeZeros(this.board)
+    var workingBoard = createWorkingBoard(this.board)
+    var noZeros = removeZeros(workingBoard)
     var tilesCombined = combineTilesRight(noZeros)
     var updatedBoard = padZeros(tilesCombined)
     this.saveBoard(updatedBoard)
     return this.board
   }
 
-  game = new Game("2222242402002204")
-  console.log(game.moveRight())
+  function reverseBoard(board) {
+    var reverseBoard = []
+    for (i = 0; i < board.length; i++) {
+      reverseBoard.push(board[i].reverse())
+    }
+    return reverseBoard
+  }
 
+  Game.prototype.moveLeft = function() {
+    var workingBoard = createWorkingBoard(this.board)
+    var reversedBoard = reverseBoard(workingBoard)
+    var noZeros = removeZeros(reversedBoard)
+    var tilesCombined = combineTilesRight(noZeros)
+    var updatedReversedBoard = padZeros(tilesCombined)
+    var updatedBoard = reverseBoard(updatedReversedBoard)
+    this.saveBoard(updatedBoard)
+    return this.board
+  }
+
+  game = new Game("0202440222224004")
+  console.log(game.moveLeft())
+  console.log(game.moveRight())
 })
 
