@@ -78,9 +78,11 @@ $(document).ready(function() {
   // move: right (therefore padding zeros from the left)
   function padZeros(board) {
     for (i = 0; i < board.length; i++) {
-      do {
-        board[i].unshift(0)
-      } while (board[i].length < 4)
+      if (board[i].length !== 4) {
+        do {
+          board[i].unshift(0)
+        } while (board[i].length < 4)
+      }
     }
     return board
   }
@@ -97,7 +99,7 @@ $(document).ready(function() {
     return this.board
   }
 
-  game = new Game("0024000000222020")
+  game = new Game("2222242402002204")
   console.log(game.moveRight())
 
 })
