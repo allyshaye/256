@@ -166,6 +166,10 @@ $(document).ready(function() {
   // game.moveDown()
   game.moveUp()
   game.moveRight()
+  game.moveLeft()
+  game.moveUp()
+  game.moveRight()
+  game.moveDown()
   console.log(game.board)
 
 
