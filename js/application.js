@@ -172,10 +172,16 @@ Game.prototype.isOver = function() {
 
 $(document).ready(function() {
 
-  game = new Game("4444222204402224")
-  // game = new Game("2222444422224444")
-  console.log(game.board)
-  console.log(game.isOver())
+  game = new Game()
+
+  // display the board
+  // var id = 4
+  // var hi = $(this).find("#" + id).text("hi")
+  // console.log(hi)
+
+  for (i=0; i < game.board.length; i++) {
+    $(this).find("#" + i).text(game.board[i])
+  }
 
 
 })
