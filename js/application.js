@@ -147,10 +147,23 @@ Game.prototype.moveDown = function() {
   return this.board
 }
 
+Game.prototype.moveUp = function() {
+  var transposedBoard = createWorkingBoard(transposeBoard(this.board))
+  var reversedBoard = reverseBoard(transposedBoard)
+  var noZeros = removeZeros(reversedBoard)
+  var tilesCombined = combineTilesRight(noZeros)
+  var paddedReversed = padZeros(tilesCombined)
+  var unreversedBoard = reverseBoard(paddedReversed)
+  var boardArray = [].concat.apply([], unreversedBoard)
+  this.board = transposeBoard(boardArray)
+  return this.board
+}
+
 $(document).ready(function() {
 
-  game = new Game("0024000000222020")
-  game.moveDown()
+  game = new Game("0202440222224004")
+  // game.moveDown()
+  game.moveUp()
   console.log(game.board)
   // console.log(createWorkingBoard(transposeBoard(game.board)))
 
