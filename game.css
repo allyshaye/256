@@ -4,7 +4,7 @@ td {
   margin: 20px;
   padding: 20px;
   background-color: white;
-  border-radius: 7px;
+  /*border-radius: 7px;*/
 }
 
 table {
@@ -12,7 +12,8 @@ table {
   margin: auto;
   border-collapse: separate;
   border-spacing: 10px 5px;
-  font-size: 1.5em;
+  font-size: 3em;
+  font-family: 'Open Sans', sans-serif;
 }
 
 #container {
@@ -22,7 +23,7 @@ table {
   width: 70%;
   text-align: center;
   color: black;
-  background-color: blue;
+  background-color: black;
 }
 
 #game {

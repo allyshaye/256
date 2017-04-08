@@ -172,6 +172,10 @@ Game.prototype.isOver = function() {
 
 Game.prototype.displayBoard = function() {
   for (i=0; i < this.board.length; i++) {
+    if (this.board[i] === 0) {
+      $("body").find("#" + i).text("")
+    } else {
     $('body').find("#" + i).text(this.board[i])
+    }
   }
 }
