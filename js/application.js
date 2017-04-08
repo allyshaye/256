@@ -170,19 +170,16 @@ Game.prototype.isOver = function() {
   return !this.board.includes(0)
 }
 
+Game.prototype.displayBoard = function() {
+  for (i=0; i < this.board.length; i++) {
+    $('body').find("#" + i).text(this.board[i])
+  }
+}
+
 $(document).ready(function() {
 
   game = new Game()
-
-  // display the board
-  // var id = 4
-  // var hi = $(this).find("#" + id).text("hi")
-  // console.log(hi)
-
-  for (i=0; i < game.board.length; i++) {
-    $(this).find("#" + i).text(game.board[i])
-  }
-
+  game.displayBoard()
 
 })
 
