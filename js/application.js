@@ -55,6 +55,10 @@ function reverseBoard(board) {
   return reverseBoard
 }
 
+function move(board) {
+  return padZeros(combineTilesRight(removeZeros(board)))
+}
+
 function transposeBoard(board) {
   var workingBoard = createWorkingBoard(board)
   var row1 = []
@@ -122,20 +126,20 @@ Game.prototype.saveBoard = function(board) {
 
 Game.prototype.moveRight = function() {
   var workingBoard = createWorkingBoard(this.board)
-  var updatedBoard = padZeros(combineTilesRight(removeZeros(workingBoard)))
+  var updatedBoard = move(workingBoard)
   return this.saveBoard(updatedBoard)
 }
 
 Game.prototype.moveLeft = function() {
   var reversedBoard = reverseBoard(createWorkingBoard(this.board))
-  var updatedReversedBoard = padZeros(combineTilesRight(removeZeros(reversedBoard)))
+  var updatedReversedBoard = move(reversedBoard)
   var updatedBoard = reverseBoard(updatedReversedBoard)
   return this.saveBoard(updatedBoard)
 }
 
 Game.prototype.moveDown = function() {
   var transposedBoard = createWorkingBoard(transposeBoard(this.board))
-  var updatedBoard = padZeros(combineTilesRight(removeZeros(transposedBoard)))
+  var updatedBoard = move(transposedBoard)
   var boardArray = [].concat.apply([], updatedBoard) 
   return this.board = transposeBoard(boardArray)
 }
@@ -143,7 +147,7 @@ Game.prototype.moveDown = function() {
 Game.prototype.moveUp = function() {
   var transposedBoard = createWorkingBoard(transposeBoard(this.board))
   var reversedBoard = reverseBoard(transposedBoard)
-  var paddedReversed = padZeros(combineTilesRight(removeZeros(reversedBoard)))
+  var paddedReversed = move(reversedBoard)
   var unreversedBoard = reverseBoard(paddedReversed)
   var boardArray = [].concat.apply([], unreversedBoard)
   return this.board = transposeBoard(boardArray)
