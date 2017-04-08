@@ -78,7 +78,6 @@ function transposeBoard(board) {
       }
     }
   }
-
   return [row1, row2, row3, row4].reduce(function(a,b) { 
     return a.concat(b); 
   })
@@ -157,6 +156,15 @@ Game.prototype.spawnBlock = function() {
   var startingNumbers = [2, 4]
   var tile = startingNumbers[getRandomIndex(2)]
 
+  var emptySpot = false
+  do {
+    var spot = getRandomIndex(16)
+    if (this.board[spot] === 0) {
+      emptySpot = true
+    }
+  } while (!emptySpot)
+
+  this.board[spot] = tile
 }
 
 $(document).ready(function() {
@@ -164,11 +172,15 @@ $(document).ready(function() {
   game = new Game("4444222204402224")
   console.log(game.board)
   game.moveRight()
-  game.moveLeft()
-  game.moveDown()
   console.log(game.board)
   game.spawnBlock()
+  console.log(game.board)
+  // game.moveLeft()
+  // game.moveDown()
+  // console.log(game.board)
 
+  // game.spawnBlock()
+// 
 
 })
 
