@@ -84,7 +84,6 @@ function transposeBoard(board) {
 }
 
 var Game = function(givenBoard) {
-
   function randomBoard() {
    var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     var index1 = getRandomIndex(16)
