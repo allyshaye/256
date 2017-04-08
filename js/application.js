@@ -57,25 +57,27 @@ function reverseBoard(board) {
 
 function transposeBoard(board) {
   var workingBoard = createWorkingBoard(board)
-  var firstRow = []
-  var secondRow = []
-  var thirdRow = []
-  var fourthRow = []
+  var row1 = []
+  var row2 = []
+  var row3 = []
+  var row4 = []
   for (i = 0; i < workingBoard.length; i++) {
     for (j = 0; j < workingBoard[i].length; j++) {
       if (j === 0) {
-        firstRow.push(workingBoard[i][j])
+        row1.push(workingBoard[i][j])
       } else if (j === 1) {
-        secondRow.push(workingBoard[i][j])
+        row2.push(workingBoard[i][j])
       } else if (j === 2) {
-        thirdRow.push(workingBoard[i][j])
+        row3.push(workingBoard[i][j])
       } else if (j === 3) {
-        fourthRow.push(workingBoard[i][j])
+        row4.push(workingBoard[i][j])
       }
     }
   }
-  var transposedBoard = [].concat(firstRow).concat(secondRow).concat(thirdRow).concat(fourthRow)
-  return transposedBoard
+
+  return [row1, row2, row3, row4].reduce(function(a,b) { 
+    return a.concat(b); 
+  })
 }
 
 var Game = function(givenBoard) {
@@ -148,11 +150,20 @@ Game.prototype.moveUp = function() {
 }
 
 Game.prototype.spawnBlock = function() {
+  var startingNumbers = [2, 4]
+  var tile = startingNumbers[getRandomIndex(2)]
+
 }
 
 $(document).ready(function() {
 
   game = new Game("4444222204402224")
+  console.log(game.board)
+  game.moveRight()
+  game.moveLeft()
+  game.moveDown()
+  console.log(game.board)
+  game.spawnBlock()
 
 
 })
