@@ -177,5 +177,6 @@ $(document).ready(function() {
   console.log(game.board)
   console.log(game.isOver())
 
+
 })
 
