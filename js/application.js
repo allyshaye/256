@@ -72,7 +72,7 @@ $(document).ready(function() {
     return board
   }
 
-  function padZerosLeft(board) {
+  function padZeros(board) {
     for (i = 0; i < board.length; i++) {
       if (board[i].length !== 4) {
         do {
@@ -115,8 +115,33 @@ $(document).ready(function() {
     return this.board
   }
 
-  game = new Game("0202440222224004")
-  console.log(game.moveLeft())
-  console.log(game.moveRight())
+  function transposeBoard(board) {
+    var workingBoard = createWorkingBoard(board)
+    var firstRow = []
+    var secondRow = []
+    var thirdRow = []
+    var fourthRow = []
+    for (i = 0; i < workingBoard.length; i++) {
+      for (j = 0; j < workingBoard[i].length; j++) {
+        if (j === 0) {
+          firstRow.push(workingBoard[i][j])
+        } else if (j === 1) {
+          secondRow.push(workingBoard[i][j])
+        } else if (j === 2) {
+          thirdRow.push(workingBoard[i][j])
+        } else if (j === 3) {
+          fourthRow.push(workingBoard[i][j])
+        }
+      }
+    }
+    var transposedBoard = [].concat(firstRow).concat(secondRow).concat(thirdRow).concat(fourthRow)
+    return transposedBoard
+  }
+
+  game = new Game("0024000000222020")
+  // console.log(game.moveLeft())
+  // console.log(game.moveRight())
+  console.log(createWorkingBoard(transposeBoard(game.board)))
+  // console.log(transposeBoard(game.board))
 })
 
