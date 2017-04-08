@@ -167,20 +167,16 @@ Game.prototype.spawnBlock = function() {
   this.board[spot] = tile
 }
 
+Game.prototype.isOver = function() {
+  return !this.board.includes(0)
+}
+
 $(document).ready(function() {
 
   game = new Game("4444222204402224")
+  // game = new Game("2222444422224444")
   console.log(game.board)
-  game.moveRight()
-  console.log(game.board)
-  game.spawnBlock()
-  console.log(game.board)
-  // game.moveLeft()
-  // game.moveDown()
-  // console.log(game.board)
-
-  // game.spawnBlock()
-// 
+  console.log(game.isOver())
 
 })
 
