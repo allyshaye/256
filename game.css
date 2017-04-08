@@ -1,0 +1,15 @@
+table {
+  padding-top: 10px;
+  margin: auto;
+  width: 45%;
+  border-collapse: separate;
+  border-spacing: 10px 5px;
+  font-size: 5em;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
+}
