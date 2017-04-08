@@ -13,7 +13,9 @@ function gameHandler(e) {
   game.spawnBlock()
 
   if (game.isOver()) {
-    console.log("gameOver") // not working correctly
+    console.log("gameOver")
+    // increase opacity
+    // say "Game Over"
   } else {
     game.displayBoard()
   }
