@@ -65,6 +65,7 @@ function combineTilesRight(board) {
       if (board[i][j] === board[i][j-1]) {
         board[i][j] *=2
         board[i].splice(j-1, 1)
+        j--
      }
     }
   }
@@ -164,8 +165,9 @@ $(document).ready(function() {
   game = new Game("0202440222224004")
   // game.moveDown()
   game.moveUp()
+  game.moveRight()
   console.log(game.board)
-  // console.log(createWorkingBoard(transposeBoard(game.board)))
+
 
 })
 
