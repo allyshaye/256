@@ -1,41 +1,5 @@
-var Game = function(givenBoard) {
-
-  function getRandomIndex(maxExclusive) {
-    return Math.floor(Math.random() * maxExclusive)
-  }
-
-  function randomBoard() {
-   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    var index1 = getRandomIndex(16)
-    var index2 = index1
-
-    do {
-      index2 = getRandomIndex(16)
-    } while (index2 === index1)
-
-    var startingNumbers = [2, 4]
-
-    var startingNum1 = startingNumbers[getRandomIndex(2)]
-    var startingNum2 = startingNumbers[getRandomIndex(2)]
-
-    board[index1] = startingNum1
-    board[index2] = startingNum2
-    return board
-  }
-
-  function presetBoard(board) {
-    var boardArray = board.split("")
-    for (i = 0; i < boardArray.length; i++) {
-      boardArray[i] = parseInt(boardArray[i])
-    }
-    return boardArray
-  }
-  
-  if (givenBoard === undefined) {
-    this.board = randomBoard()
-  } else {
-    this.board = presetBoard(givenBoard)
-  }
+function getRandomIndex(maxExclusive) {
+  return Math.floor(Math.random() * maxExclusive)
 }
 
 function createWorkingBoard(board) {
@@ -83,10 +47,6 @@ function padZeros(board) {
   return board
 }
 
-Game.prototype.saveBoard = function(board) {
-  this.board = [].concat.apply([], board)
-}
-
 function reverseBoard(board) {
   var reverseBoard = []
   for (i = 0; i < board.length; i++) {
@@ -118,6 +78,46 @@ function transposeBoard(board) {
   return transposedBoard
 }
 
+var Game = function(givenBoard) {
+
+  function randomBoard() {
+   var board = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    var index1 = getRandomIndex(16)
+    var index2 = index1
+
+    do {
+      index2 = getRandomIndex(16)
+    } while (index2 === index1)
+
+    var startingNumbers = [2, 4]
+
+    var startingNum1 = startingNumbers[getRandomIndex(2)]
+    var startingNum2 = startingNumbers[getRandomIndex(2)]
+
+    board[index1] = startingNum1
+    board[index2] = startingNum2
+    return board
+  }
+
+  function presetBoard(board) {
+    var boardArray = board.split("")
+    for (i = 0; i < boardArray.length; i++) {
+      boardArray[i] = parseInt(boardArray[i])
+    }
+    return boardArray
+  }
+  
+  if (givenBoard === undefined) {
+    this.board = randomBoard()
+  } else {
+    this.board = presetBoard(givenBoard)
+  }
+}
+
+Game.prototype.saveBoard = function(board) {
+  this.board = [].concat.apply([], board)
+}
+
 Game.prototype.moveRight = function() {
   var workingBoard = createWorkingBoard(this.board)
   var updatedBoard = padZeros(combineTilesRight(removeZeros(workingBoard)))
@@ -147,16 +147,12 @@ Game.prototype.moveUp = function() {
   return this.board = transposeBoard(boardArray)
 }
 
+Game.prototype.spawnBlock = function() {
+}
+
 $(document).ready(function() {
 
-  game = new Game("0202440222224004")
-  game.moveUp()
-  game.moveRight()
-  game.moveLeft()
-  game.moveUp()
-  game.moveRight()
-  game.moveDown()
-  console.log(game.board)
+  game = new Game("4444222204402224")
 
 
 })
