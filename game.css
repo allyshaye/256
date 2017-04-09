@@ -17,7 +17,7 @@ table {
 #container {
   padding: 50px;
   margin: auto;
-  /*margin-top: 50px;*/
+  margin-top: 50px;
   width: 70%;
   text-align: center;
   color: black;
@@ -34,7 +34,5 @@ table {
 
 h1 {
   margin: 0px;
-  padding: 0px;
   font-family: 'Open Sans', sans-serif;
-  /*font-size: 4em: */
 }

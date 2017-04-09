@@ -164,6 +164,7 @@ Game.prototype.spawnBlock = function() {
   } while (!emptySpot)
 
   this.board[spot] = tile
+  this.newBlockIndex = spot
 }
 
 Game.prototype.isOver = function() {
@@ -179,7 +180,11 @@ Game.prototype.displayBoard = function() {
     if (this.board[i] === 0) {
       $("body").find("#" + i).text("")
     } else {
-    $('body').find("#" + i).text(this.board[i])
+      $('body').find("#" + i).text(this.board[i])
+      if (this.newBlockIndex === i) {
+        // $('body').find("#" + i).animate({ fontSize: "2em" }, 'fast').animate({ fontSize: "1em"}, 'fast')
+        $('body').find('#' + i).fadeIn(50).fadeOut(50).fadeIn(50)
+      }
     }
   }
 }
