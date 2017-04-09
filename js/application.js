@@ -48,9 +48,10 @@ function gameHandler(e) {
     game.moveLeft()
   } else if (keyPressed === 39) {
     game.moveRight()
-  }
-
+  } 
   game.spawnBlock()
+  colorTiles(game.board)
+  game.displayBoard()
 
   if (game.isOver()) {
     console.log("gameOver")
