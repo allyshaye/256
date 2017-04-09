@@ -55,8 +55,7 @@ function gameHandler(e) {
 
   if (game.isOver()) {
     console.log("gameOver")
-    // increase opacity
-    // say "Game Over"
+    $("#game").css("opacity", "0.3")
   } else {
     colorTiles(game.board)
     game.displayBoard()
