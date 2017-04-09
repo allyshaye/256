@@ -24,26 +24,16 @@ function colorTiles(board) {
         assignColors(tile, "#BA01FF", "black")
         break
       case 64:
-        assignColors(tile, "#31187B", "black")
+        assignColors(tile, "#B179DB", "black")
         break
       case 128:
         assignColors(tile, "#46E4BC", "black")
         break
       case 256:
-        assignColors(tile, "#EB1B3B", "black")
-        break
-      case 512: // this is where we stopped
-        assignColors(tile, "#CB4EDA", "black")
-        break
-      case 1024:
-        assignColors(tile, "#CB4EDA", "black")
-        break
-      case 2048:
-        assignColors(tile, "#CB4EDA", "black")
+        assignColors(tile, "#EB1B3B", "white")
         break
       default:
-        assignColors(tile, "#FF0092", "black")
-        tile.css("background-color", "gray").css('color', 'white')
+        assignColors(tile, "#D3D3D3", "white")
     }
   }
 }
