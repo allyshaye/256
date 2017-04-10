@@ -175,7 +175,7 @@ Game.prototype.spawnBlock = function() {
 }
 
 Game.prototype.isOver = function() {
-  if (!this.board.includes(0) || this.board.includes(256)) {
+  if ((!this.board.includes(0)) || (this.board.includes(256))) {
     return true
   } else {
     return false

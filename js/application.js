@@ -60,7 +60,8 @@ function gameHandler(e) {
   game.displayBoard()
 
   if (game.isOver()) {
-    $("#game").css("opacity", "0.2")
+
+    $("#game").delay(1000).animate({opacity : "0.2"}, 100)
   } else {
     colorTiles(game.board)
     game.displayBoard()
