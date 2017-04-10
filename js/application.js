@@ -41,21 +41,26 @@ function colorTiles(board) {
 function gameHandler(e) {
   var keyPressed = e.which
   if (keyPressed === 38) {
-    game.moveUp()
+    game.moveUp(game.board)
   } else if (keyPressed === 40) {
-    game.moveDown()
+    game.moveDown(game.board)
   } else if (keyPressed === 37) {
-    game.moveLeft()
+    game.moveLeft(game.board)
   } else if (keyPressed === 39) {
-    game.moveRight()
-  } 
-  game.spawnBlock()
+    game.moveRight(game.board)
+  }
+
+  if (game.oldBoard.toString() !== game.board.toString()) {
+    game.spawnBlock()
+  } else {
+    game.newBlockIndex = undefined
+  }
+
   colorTiles(game.board)
   game.displayBoard()
 
   if (game.isOver()) {
-    console.log("gameOver")
-    $("#game").css("opacity", "0.3")
+    $("#game").css("opacity", "0.2")
   } else {
     colorTiles(game.board)
     game.displayBoard()
@@ -65,11 +70,9 @@ function gameHandler(e) {
 $(document).ready(function() {
 
   game = new Game()
-  game.displayBoard()
   colorTiles(game.board)
-  
+  game.displayBoard()
 
   $('body').on('keyup', gameHandler)
-
 })
 

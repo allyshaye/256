@@ -122,28 +122,34 @@ Game.prototype.saveBoard = function(board) {
   this.board = [].concat.apply([], board)
 }
 
-Game.prototype.moveRight = function() {
-  var workingBoard = createWorkingBoard(this.board)
+Game.prototype.moveRight = function(board) {
+  this.oldBoard = board
+  var workingBoard = createWorkingBoard(board)
   var updatedBoard = move(workingBoard)
   return this.saveBoard(updatedBoard)
+
 }
 
-Game.prototype.moveLeft = function() {
-  var reversedBoard = reverseBoard(createWorkingBoard(this.board))
+Game.prototype.moveLeft = function(board) {
+  this.oldBoard = board
+  var reversedBoard = reverseBoard(createWorkingBoard(board))
   var updatedReversedBoard = move(reversedBoard)
   var updatedBoard = reverseBoard(updatedReversedBoard)
   return this.saveBoard(updatedBoard)
 }
 
-Game.prototype.moveDown = function() {
-  var transposedBoard = createWorkingBoard(transposeBoard(this.board))
+Game.prototype.moveDown = function(board) {
+  this.oldBoard = board
+  var transposedBoard = createWorkingBoard(transposeBoard(board))
   var updatedBoard = move(transposedBoard)
   var boardArray = [].concat.apply([], updatedBoard) 
   return this.board = transposeBoard(boardArray)
+
 }
 
-Game.prototype.moveUp = function() {
-  var transposedBoard = createWorkingBoard(transposeBoard(this.board))
+Game.prototype.moveUp = function(board) {
+  this.oldBoard = board
+  var transposedBoard = createWorkingBoard(transposeBoard(board))
   var reversedBoard = reverseBoard(transposedBoard)
   var paddedReversed = move(reversedBoard)
   var unreversedBoard = reverseBoard(paddedReversed)
@@ -156,6 +162,7 @@ Game.prototype.spawnBlock = function() {
   var tile = startingNumbers[getRandomIndex(2)]
 
   var emptySpot = false
+
   do {
     var spot = getRandomIndex(16)
     if (this.board[spot] === 0) {
@@ -182,8 +189,7 @@ Game.prototype.displayBoard = function() {
     } else {
       $('body').find("#" + i).text(this.board[i])
       if (this.newBlockIndex === i) {
-        // $('body').find("#" + i).animate({ fontSize: "2em" }, 'fast').animate({ fontSize: "1em"}, 'fast')
-        $('body').find('#' + i).fadeIn(50).fadeOut(50).fadeIn(50)
+        $('body').find('#' + i).fadeOut(50).fadeIn(50)
       }
     }
   }
