@@ -65,7 +65,7 @@ function gameHandler(e) {
     $(document).on('keyup', function(e) {
       e.preventDefault()
     })
-    $("#game").delay(1000).animate({opacity : "0.2"}, 100)
+    $("#game").delay(1000).animate({opacity : "0.2"}, 1000)
   } else {
     colorTiles(game.board)
     game.displayBoard()
