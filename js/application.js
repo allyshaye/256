@@ -10,31 +10,31 @@ function colorTiles(board) {
 
     switch (board[i]) {
       case 2: 
-        assignColors(tile, "#e0f3fa", "black")
+        assignColors(tile, "#F7B3DA", "black")
         break
       case 4:
-        assignColors(tile, "#aedff2", "black")
+        assignColors(tile, "#DDA0DD", "black")
         break
       case 8:
-        assignColors(tile, "#6ac4e6", "black")
+        assignColors(tile, "#DA70D6", "black")
         break
       case 16:
-        assignColors(tile, "#49b7e1", "black")
+        assignColors(tile, "#FF00FF", "black")
         break
       case 32:
-        assignColors(tile, "#27a9db", "black")
+        assignColors(tile, "#BA55D3", "black")
         break
       case 64:
-        assignColors(tile, "#229dcd", "black")
+        assignColors(tile, "#9370DB", "black")
         break
       case 128:
-        assignColors(tile, "#1d85ad", "black")
+        assignColors(tile, "#9400D3", "black")
         break
       case 256:
-        assignColors(tile, "#940DA1", "white")
+        assignColors(tile, "#ef0baf", "white")
         break
       default:
-        assignColors(tile, "#FFE093", "black")
+        assignColors(tile, "#a2f2ef", "black")
     }
   }
 }
@@ -63,7 +63,7 @@ function gameHandler(e) {
   if (game.isOver()) {
     $(document).on('keyup', function(e) {
       e.preventDefault()
-      $("#game").delay(1000).animate({opacity : "0"}, 3000)
+      $("#game").delay(1000).animate({opacity : "0.3"}, 3000)
       $("#gameover").css("visibility", "visible")
     })
   } else {
