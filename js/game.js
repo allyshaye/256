@@ -174,6 +174,10 @@ Game.prototype.spawnBlock = function() {
   this.newBlockIndex = spot
 }
 
+Game.prototype.noMoreMoves = function() {
+
+}
+
 Game.prototype.isOver = function() {
   if ((!this.board.includes(0)) || (this.board.includes(256))) {
     return true

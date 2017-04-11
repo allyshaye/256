@@ -9,31 +9,31 @@ function colorTiles(board) {
 
     switch (board[i]) {
       case 2: 
-        assignColors(tile, "#FF0092", "black")
+        assignColors(tile, "#e0f3fa", "black")
         break
       case 4:
-        assignColors(tile, "#FFCA1B", "black")
+        assignColors(tile, "#aedff2", "black")
         break
       case 8:
-        assignColors(tile, "#B6FF00", "black")
+        assignColors(tile, "#6ac4e6", "black")
         break
       case 16:
-        assignColors(tile, "#228DFF", "black")
+        assignColors(tile, "#49b7e1", "black")
         break
       case 32:
-        assignColors(tile, "#BA01FF", "black")
+        assignColors(tile, "#27a9db", "black")
         break
       case 64:
-        assignColors(tile, "#B179DB", "black")
+        assignColors(tile, "#229dcd", "black")
         break
       case 128:
-        assignColors(tile, "#46E4BC", "black")
+        assignColors(tile, "#1d85ad", "black")
         break
       case 256:
-        assignColors(tile, "#EB1B3B", "white")
+        assignColors(tile, "#940DA1", "white") //done
         break
       default:
-        assignColors(tile, "#D3D3D3", "white")
+        assignColors(tile, "#E0FFB4", "black")
     }
   }
 }
@@ -60,7 +60,6 @@ function gameHandler(e) {
   game.displayBoard()
 
   if (game.isOver()) {
-
     $("#game").delay(1000).animate({opacity : "0.2"}, 100)
   } else {
     colorTiles(game.board)
