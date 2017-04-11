@@ -62,8 +62,9 @@ function gameHandler(e) {
   if (game.isOver()) {
     $(document).on('keyup', function(e) {
       e.preventDefault()
+      $("#game").delay(1000).animate({opacity : "0"}, 3000)
+      $("#gameover").css("visibility", "visible")
     })
-    $("#game").delay(1000).animate({opacity : "0.2"}, 1000)
   } else {
     colorTiles(game.board)
     game.displayBoard()
