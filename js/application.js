@@ -1,5 +1,5 @@
 function assignColors(jqueryElement, backgroundColor, fontColor) {
-  jqueryElement.css("background-color", backgroundColor).css('color', fontColor)
+  jqueryElement.css("background-color", backgroundColor).css("color", fontColor)
 }
 
 function colorTiles(board) {
@@ -33,7 +33,9 @@ function colorTiles(board) {
         assignColors(tile, "#940DA1", "white") //done
         break
       default:
-        assignColors(tile, "#E0FFB4", "black")
+        assignColors(tile, "#FFFDCC", "black")
+        // tile.css("background", "linear-gradient(90deg, #FEFBAF 0%, #FFEAF4 51%, #E0FFB4 75%)")
+        // assignColors(tile, "#fdfd96", "white")
     }
   }
 }
@@ -60,6 +62,9 @@ function gameHandler(e) {
   game.displayBoard()
 
   if (game.isOver()) {
+    $(document).on('keyup', function(e) {
+      e.preventDefault()
+    })
     $("#game").delay(1000).animate({opacity : "0.2"}, 100)
   } else {
     colorTiles(game.board)
