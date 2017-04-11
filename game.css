@@ -23,6 +23,10 @@ table {
   color: white;
 }
 
+span {
+  font-family: 'Lobster', cursive;
+}
+
 #game {
   background-color: white;
   padding: 10px;
