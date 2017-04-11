@@ -50,17 +50,6 @@ a {
   color: #5CEDD7;
 }
 
-/*#gameover {
-  font-family: 'Lobster', cursive;
-  visibility: hidden;
-  position: absolute;
-  margin: auto;
-  width: auto;
-  margin-top: 0px;
-  margin-left: -25px;
-  top: 50%;
-}*/
-
 #gameover h1 {
   font-size: 6em;
 }

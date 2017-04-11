@@ -31,7 +31,7 @@ function colorTiles(board) {
         assignColors(tile, "#9400D3", "black")
         break
       case 256:
-        assignColors(tile, "#ef0baf", "white")
+        assignColors(tile, "#eac717", "white")
         break
       default:
         assignColors(tile, "#a2f2ef", "black")
