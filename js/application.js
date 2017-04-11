@@ -33,9 +33,7 @@ function colorTiles(board) {
         assignColors(tile, "#940DA1", "white") //done
         break
       default:
-        assignColors(tile, "#FFFDCC", "black")
-        // tile.css("background", "linear-gradient(90deg, #FEFBAF 0%, #FFEAF4 51%, #E0FFB4 75%)")
-        // assignColors(tile, "#fdfd96", "white")
+        assignColors(tile, "#F8D930", "black")
     }
   }
 }
