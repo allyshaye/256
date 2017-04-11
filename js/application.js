@@ -34,7 +34,7 @@ function colorTiles(board) {
         assignColors(tile, "#940DA1", "white")
         break
       default:
-        assignColors(tile, "#F8D930", "black")
+        assignColors(tile, "#FFE093", "black")
     }
   }
 }
