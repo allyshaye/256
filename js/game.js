@@ -215,8 +215,6 @@ Game.prototype.isOver = function() {
   return done
 }
 
-// CHANGE FLASH ANIMATION TO SOMETHING ELSE
-// ADD ANIMATION FOR BLOCKS COMBINING
 Game.prototype.displayBoard = function() {
   for (i=0; i < this.board.length; i++) {
     if (this.board[i] === 0) {
