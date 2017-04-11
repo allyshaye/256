@@ -65,6 +65,11 @@ a {
   font-size: 6em;
 }
 
+#new-game {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
 a:visited {
   text-decoration: none;
   color: #5CEDD7;
