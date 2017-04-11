@@ -2,7 +2,6 @@ function assignColors(jqueryElement, backgroundColor, fontColor) {
   jqueryElement.css("background-color", backgroundColor).css("color", fontColor)
 }
 
-// REDO COLOR SELECTIONS - no corporate blue pls.
 function colorTiles(board) {
  
   for (i=0; i < board.length; i++) {
