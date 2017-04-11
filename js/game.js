@@ -174,35 +174,6 @@ Game.prototype.spawnBlock = function() {
   this.newBlockIndex = spot
 }
 
-// FIX THIS!!!
-
-// Game.prototype.noMoreMoves = function() {
-//   var areThereMoves = true
-//   var leftRightBoard = createWorkingBoard(this.board)
-//   var upDownBoard = createWorkingBoard(this.board)
-//   for (i=0; i < leftRightBoard.length; i++) {
-//     for (j=0; j < leftRightBoard[i].length-1; j++) {
-//       switch (true) {
-//         case (leftRightBoard[i][j] === leftRightBoard [i][j+1]):
-//           areThereMoves = false
-//           break
-//         case (upDownBoard[i][j] === upDownBoard[i][j+1]):
-//           areThereMoves = false
-//           break
-//         }
-//       // } (leftRightBoard[i][j] === leftRightBoard[i][j+1]) {
-//       //   noMoves = false
-//       //   break
-//       // } else if (upDownBoard[i][j] === upDownBoard[i][j+1]) {
-//       //   noMoves = false
-//       //   break
-//       // }
-//     }
-//   }
-//   return areThereMoves
-// }
-
-
 Game.prototype.movesLeftRight = function() {
   var areThereMoves = false
   var board = createWorkingBoard(this.board)
@@ -214,7 +185,6 @@ Game.prototype.movesLeftRight = function() {
       }
     }
   }
-  console.log("moves left right" + areThereMoves)
   return areThereMoves
 }
 
@@ -229,7 +199,6 @@ Game.prototype.movesUpDown = function() {
       }
     }
   }
-  console.log("moves up down" + areThereMoves)
   return areThereMoves
 }
 
@@ -237,19 +206,17 @@ Game.prototype.isOver = function() {
   var done = false
 
   if (this.board.includes(256)) {
-    console.log("this includes 256")
     done = true
   } else if (!this.board.includes(0)) {
-    console.log("there are no empty spots")
     if (!this.movesUpDown() && !this.movesLeftRight()) {
-      console.log("in nested loop for not up down and not left right")
       done = true
     }
   }
-  console.log("done:" + done)
   return done
 }
 
+// CHANGE FLASH ANIMATION TO SOMETHING ELSE
+// ADD ANIMATION FOR BLOCKS COMBINING
 Game.prototype.displayBoard = function() {
   for (i=0; i < this.board.length; i++) {
     if (this.board[i] === 0) {
