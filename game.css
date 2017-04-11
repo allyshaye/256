@@ -39,8 +39,9 @@ h1 {
 }
 
 h4 {
-  font-family: 'Lobster', cursive;
-  font-size: 1.4em;
+  /*font-family: 'Lobster', cursive;*/
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
   letter-spacing: 1px;
   margin-bottom: 0px;
 }
