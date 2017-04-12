@@ -8,7 +8,7 @@ Game is pretty simple: the game is over if...
 * the board is full with no tiles left to combine (womp, click 'new game' to try again)
 
 ## languages
-256 is written entirely in Javascript. Tests are provided in the Jasmine framework.
+256 is written entirely in JavaScript. Tests are provided in the Jasmine framework.
 
 ## preview (click on image for YouTube video)
 
