@@ -3,7 +3,7 @@
 A [2048](https://gabrielecirulli.github.io/2048/) Clone!
 
 ## instructions
-Game is pretty simple: game is over if:
+Game is pretty simple: the game is over if...
 * you get the 256 tile (woo, you won!)
 * the board is full with no tiles left to combine (womp, click 'new game' to try again)
 
