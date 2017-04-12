@@ -3,7 +3,7 @@
 A [2048](https://gabrielecirulli.github.io/2048/) Clone!
 
 ## languages
-256 was written entirely in Javascript. Tests written in Jasmine.
+256 is written entirely in Javascript. Tests have provided in the Jasmine framework.
 
 ## preview (click on image for YouTube video)
 
