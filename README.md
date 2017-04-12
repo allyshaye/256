@@ -2,6 +2,11 @@
 
 A [2048](https://gabrielecirulli.github.io/2048/) Clone!
 
+## instructions
+Game is pretty simple: game is over if:
+* you get the 256 tile (woo, you won!)
+* the board is full with no tiles left to combine (womp, click 'new game' to try again)
+
 ## languages
 256 is written entirely in Javascript. Tests have provided in the Jasmine framework.
 
