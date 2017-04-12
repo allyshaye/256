@@ -63,7 +63,6 @@ function gameHandler(e) {
     $(document).on('keyup', function(e) {
       e.preventDefault()
       $("#game").delay(1000).animate({opacity : "0.3"}, 3000)
-      $("#gameover").css("visibility", "visible")
     })
   } else {
     colorTiles(game.board)
