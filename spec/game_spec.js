@@ -21,7 +21,7 @@ describe("256", function() {
   })
 
   describe("it moves each row to the direction specified", function() {
-    describe("click down arrow", function () {
+    describe("move right", function () {
       it("moves all numbers to the right, getting rid of zeros to the right", function() {
         game.moveRight(game.board)
         expect(game.oldBoard).not.toEqual(game.board)
@@ -34,13 +34,12 @@ describe("256", function() {
       });
     });
 
-    describe("click left arrow", function() {
+    describe("move left", function() {
       it("moves all numbers to the left, getting rid of zeros to the left", function() {
         game.moveLeft(game.board)
         expect(game.oldBoard).not.toEqual(game.board)
         expect(game.board[12]).not.toEqual(0)
       });
-    });
 
       it("combines tiles once, prioritizing tiles towards the left", function() {
         game.moveLeft(game.board)
@@ -48,7 +47,7 @@ describe("256", function() {
       });
     });
 
-    describe("click up arrow", function() {
+    describe("move up", function() {
       it("moves all numbers up, getting rid of zeros towards the top", function() {
         game.moveUp(game.board)
         expect(game.oldBoard).not.toEqual(game.board)
@@ -61,7 +60,7 @@ describe("256", function() {
       });
     });
 
-    describe("down arrow", function() {
+    describe("move down", function() {
       it("moves all numbers down, getting rid of zeros towards the bottom", function() {
         game.moveDown(game.board)
         expect(game.oldBoard).toEqual(game.board)
@@ -71,7 +70,27 @@ describe("256", function() {
         game.moveDown(game.board)
         expect(game.board[14]).toEqual(game.board[15])
       });
-  }); 
-})
+    }); 
+  });
 
+  describe("spawnBlock", function() {
+    it("spawns a new tile", function() {
+      game.moveRight(game.board)
+      expect(game.oldBoard).not.toEqual(game.board)
+      var zeroCountOld = 0;
+      var zeroCountCurrent = 0;
+      for (var i = 0; i < game.oldBoard.length; i++) {
+        if (game.oldBoard[i] === 0) {
+          zeroCountOld += 1
+        }
+      }
 
+      for (var i = 0; i < game.board.length; i++) {
+        if (game.board[i] === 0) {
+          zeroCountCurrent += 1
+        }
+      }
+      expect(zeroCountOld).toBeLessThan(zeroCountCurrent)
+    });
+  });
+});
