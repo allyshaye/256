@@ -2,7 +2,7 @@
 
 A [2048](https://gabrielecirulli.github.io/2048/) Clone!
 
-## background
+## languages
 256 was written entirely in Javascript. Tests written in Jasmine.
 
 ## preview (click on image for YouTube video)
